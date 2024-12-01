@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    </head>
+    <body>
+        <div id="d"></div>
+          <script type="text/babel">
+
+            function Players(){
+                return <div>
+                    <img src="https://pbs.twimg.com/profile_images/1659261823697420289/3UlePMbV_400x400.jpg"/>
+                    <h1>Name: MSD</h1>
+                    <h2>Centuries:16</h2>
+                    <h3>The journey between Runout</h3>
+                    </div>
+            }
+
+            ReactDOM.render(<Players></Players>,document.getElementById("d"))
+
+          </script>
+    </body>
+</html>
+<!--
+*Component is nothing but a function which returns jsx statement and where function name should start with capital letter
+*components is used for reusability
+*-->

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    </head>
+    <body>
+        <div id="d"></div>
+          <script type="text/babel">
+          
+           function Countries(){
+
+            var [countr,setcountr] = React.useState([])
+
+            React.useEffect(function(){
+                fetch("https://restcountries.com/v3/all")
+                .then(function(resp){
+                    resp.json().then((data)=>{
+                        setcountr([...data])
+                    })
+                })
+            },[])
+
+            function sort(key){
+
+                var temp = [...countr]
+                temp.sort(function(a,b){
+                    if(a[key]>b[key]){
+                        return 1
+                    }else{
+                        return -1
+                    }
+                })
+
+                setcountr([...temp])
+            }
+
+
+            return(
+                <div>
+                    <table className='table table-striped'>
+                        <thead>
+                            <th onClick={()=>sort('name')}>Name</th>
+                            <th onClick={()=>sort('capital')}>Capital</th>
+                            <th onClick={()=>sort('population')}>Population</th>
+                            <th onClick={()=>sort('area')}>Area</th>
+                        </thead>
+                        <tbody>
+                            {
+                                countr.map((c)=>{
+                                    return<tr>
+                                        <td>{c.name.common}</td>
+                                        <td>{c.capital? c.capital:'none'}</td>
+                                        <td>{c.population}</td>
+                                        <td>{c.area}</td>
+                                    </tr>
+                                })
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            )
+           }
+
+           ReactDOM.render(<Countries/>,document.getElementById("d"))
+           
+
+          </script>
+    </body>
+</html>

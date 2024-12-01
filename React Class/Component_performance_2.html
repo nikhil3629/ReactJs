@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    </head>
+    <body>
+        <div id="d"></div>
+          <script type="text/babel">
+
+            var Child = React.memo(function(props){
+                return <div className='border border-1 p-3 m-2 '>
+                    <li>{props.a}
+                        <button className='btn btn-danger m-2' onClick={()=>{props.del(props.n)}}>Delete</button>
+                        </li>
+                    </div>
+            })
+            
+            function Parent(){
+
+                var[member,setmem] = React.useState(['Mutter','vatter','tschuster','broter'])
+
+                function Add(){
+                    var z = document.getElementById("t").value
+                    setmem([...member,z])
+                }
+
+                var del = React.useCallback(function(n){
+                    var temp = [...member]
+                    temp.splice(n,1)
+                    setmem([...temp])
+
+
+                },[])
+                
+               
+
+                return<div className='border border-2 m-2 p-3 border-primary'>
+                    <input type='text' id='t'/>&nbsp;&nbsp;
+                    <button className='btn btn-success' onClick={Add}>Add</button>
+                    <ul>
+                        {
+                            member.map((a,n)=>{
+                                return <Child a={a} n={n} del={del}></Child>
+                            })
+                        
+                        }
+                    </ul>
+                </div>
+            }
+
+            ReactDOM.render(<Parent/>,document.getElementById("d"))
+
+           
+
+          </script>
+    </body>
+</html>

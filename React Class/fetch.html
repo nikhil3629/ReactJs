@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <ul id="u">
+
+        </ul>
+        <script>
+            fetch("https://restcountries.com/v3/all").then(function(response){
+                response.json().then((data)=>{
+                    data.forEach((c)=>{
+                        var nli = document.createElement('li');
+                        nli.innerHTML=c.name.common
+                        nli.style.width = '10px'
+                        var ig = document.createElement('img');
+                        ig.src = c.flags[0]
+                        ig.style.width = '100px'
+                        document.getElementById("u").appendChild(nli)
+                        document.getElementById("u").appendChild(ig)
+                    })
+                })
+            })
+        </script>
+    </body>
+</html>
