@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="ff.js"></script>
+    </head>
+    <body>
+        <div id="d"></div>
+        <script type="text/babel">
+
+            
+            function srt(k){
+                ffd.sort(function(a,b){
+                    if(a[k]>b[k]){
+                        return 1;
+                    }else{
+                        return -1;
+                    }
+                })
+
+                genui();
+            }
+
+            function ag(n){
+                ffd.sort(function(a,b){
+                    if(a[n]>b[n]){
+                        return 1;
+                    }else{
+                        return -1;
+                    }
+                })
+                genui();
+            }
+
+            function genui(){
+            var tb = <div>
+                <table border="2px">
+                    <thead>
+                        <tr>
+                            <th onClick={()=>{srt('Name')}}>Name</th>
+                            <th onClick={()=>{ag("Age")}}>Age</th>
+                            <th>Gender</th>
+                            <th>Role</th>
+                            <th>Contribution</th>
+                        </tr>
+                    </thead>
+                    {
+                    
+                        ffd.map((a)=>{
+                            return <tr>
+                                <td>{a.Name}</td>
+                                <td>{a.Age}</td>
+                                <td>{a.Gender}</td>
+                                <td>{a.Role}</td>
+                                <td>{a.Contribution}</td>
+                            </tr>
+                        })
+                    }
+                </table>
+            </div>
+
+            ReactDOM.render(tb,document.getElementById("d"))
+            }
+
+            genui();
+
+            
+                
+
+
+        </script>
+    </body>
+</html>

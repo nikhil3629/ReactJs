@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <style>
+            body{
+                background-color: burlywood;
+            }
+
+            h1{
+                margin-left: 180px;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+             #star{
+                margin-left: 180px;
+                padding:2px;
+            }
+
+            #k{
+                border:5px solid;
+                margin-left: 170px;
+                margin-right: 620px;
+                padding:10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="d"></div>
+          <script type="text/babel">
+                 
+               function Rati(props){
+
+                var [x,setx] = React.useState(0);
+
+                function rat(k){
+                    setx(k)
+                }
+
+                return (
+                    <div>
+                    
+                    <p></p>
+                    
+                    <h1>{props.features} Rating: {x}/5</h1>
+                    <div id='star'>
+                    <i class={(x>=1)?"bi bi-star-fill":"bi bi-star"} onClick={()=>{rat(1)}}></i>
+                    <i class={(x>=2)?"bi bi-star-fill":"bi bi-star"}onClick={()=>{rat(2)}}></i>
+                    <i class={(x>=3)?"bi bi-star-fill":"bi bi-star"} onClick={()=>{rat(3)}}></i>
+                    <i class={(x>=4)?"bi bi-star-fill":"bi bi-star"} onClick={()=>{rat(4)}}></i>
+                    <i class={(x>=5)?"bi bi-star-fill":"bi bi-star"} onClick={()=>{rat(5)}}></i>
+                    </div>
+                    </div>
+                )
+               }
+
+               function Parent(){
+                return(
+                    <div>
+                      <p></p><br></br>
+                      <h1 id='hh'><u>Mobile Review :-</u></h1>
+                      <br></br>
+                      <div id='k'>
+                      <Rati features ={'Battery'}/>
+                      <Rati features ={'RAM'}/>
+                      <Rati features ={'ROM'}/>
+                      <Rati features ={'Display'}/>
+                      <Rati features ={'Camera'}/>
+                      </div>
+                        </div>
+                )
+                      
+               }
+        
+
+               ReactDOM.render(<Parent/>,document.getElementById("d"))
+          </script>
+    </body>
+</html>

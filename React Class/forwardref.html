@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    </head>
+    <body>
+        <div id="d"></div>
+          <script type="text/babel">
+
+            function Parent(){
+
+                var pref= React.useRef();
+                var cref = React.useRef();
+
+                React.useEffect(()=>{
+                    pref.current.focus()
+                },[])
+
+                function checkenter(ev){
+                    if(ev.key === "Enter"){
+                        console.log(ev.key)
+                        cref.current.focus()
+                    }
+                }
+                
+                return(
+                    <div style={{border:"1px solid red",padding:"10px",margin:"10px"}}>
+                        <input type='text' ref={pref} onKeyUp={(e)=>{checkenter(e)}}/>
+                        <Child ref3={cref}></Child>
+                    </div>
+                )
+            }
+
+            function Child(props){
+                
+
+                return(
+                    <div style={{border:"1px solid blue",padding:"10px",margin:"20px"}}>
+                        <input type="text" ref={props.ref3}/>
+                    </div>
+                )
+            }
+
+            ReactDOM.render(<Parent/>,document.getElementById("d"))
+
+           
+
+          </script>
+    </body>
+</html>

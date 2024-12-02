@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    </head>
+    <body>
+        <div id="d"></div>
+        <script type="text/babel">
+              var like = 0;
+              var dislike = 0;
+
+              function abc(){
+                 like++
+                 genui();
+              }
+
+              function bcd(){
+                 dislike++
+                 genui();
+              }
+        
+              function genui(){
+              var op = <div>
+                         <h1>Like: {like}</h1>
+                         <h1>Dislike: {dislike}</h1>
+                         <button onClick={abc}>Lk</button>
+                         <button onClick={bcd}>Dk</button>
+                        </div>
+                    
+              ReactDOM.render(op,document.getElementById("d"))
+            }
+
+            genui();
+        </script>
+    </body>
+</html>
