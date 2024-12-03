@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    </head>
+    <body>
+        <div id="d"></div>
+          <script type="text/babel">
+
+            function Todolist(){
+
+                var[x,setx] = React.useState([])
+
+                var tRef = React.useRef();
+                var bref = React.useRef();
+
+                function Add(){
+                   var y = tRef.current.value
+                   setx([...x,y])
+                }
+
+                function del(ind){
+                    x.splice(ind,1)
+                    setx([...x])
+                }
+
+                React.useEffect(()=>{
+                    tRef.current.focus();
+                },[])
+
+                function checkenter(ev){
+                    if(ev.key === 'Enter'){
+                        bref.current.focus();
+                    }
+                }
+
+                return(
+                    <div>
+                        <input type='text' ref={tRef} onKeyUp={(e)=>{checkenter(e)}} />
+                        <button onClick={()=>{Add()}} ref={bref}>Add</button>
+                        {
+                            x.map((a,i)=>{
+                                return <li>{a}
+                                    <button onClick={()=>{del(i)}}>del</button>
+                                    </li>
+                            })
+                        }
+                    </div>
+                )
+            }
+
+            ReactDOM.render(<Todolist/>,document.getElementById("d"))
+
+           
+
+          </script>
+    </body>
+</html>
+
+<!--
+*useref is used instead of document for accesing the data from one element. -->

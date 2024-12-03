@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+</head>
+<body>
+    <div id="d"></div>
+    <script type="text/babel">
+
+        function Todolist(){
+
+            var [x,setx] = React.useState([])
+
+            function abc(){
+                var y = document.getElementById("t").value;
+            setx([...x,{title:y,status:false}])
+            }
+
+            function xyz(ik){
+                var temp = [...x];
+                temp[ik].status =! temp[ik].status;
+                setx([...temp])
+            }
+
+
+            return <div>
+                       <input type='text' id='t'/>
+                       <button onClick={()=>{abc()}}>Add</button>
+                       {
+                        x.map((a,i)=>{
+                            return <li style={a.status?{textDecoration:'line-through'}:{}}>{a.title}
+                                <button onClick={()=>{xyz(i)}}>Done</button>
+                                </li>
+                        })
+                       }
+                </div>
+                 
+        }
+
+        ReactDOM.render(<Todolist></Todolist>,document.getElementById("d"));
+    </script>
+</body>
+</html>

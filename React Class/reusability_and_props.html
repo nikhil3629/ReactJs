@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    </head>
+    <body>
+        <div id="d"></div>
+        <script type="text/babel">
+
+            function Counter({pr,ic=1}){
+              
+console.log(ic)
+                var [x,setx] = React.useState(pr);
+
+                function inc(){
+                    setx(x+ic);
+                }
+                function dec(){
+                    setx(x-1)
+                }
+                function res(){
+                    setx(0)
+                }
+
+                return ( <div>
+                        <h1>Count: {x}</h1>
+                        <button onClick={()=>{inc()}}>Inc</button>
+                        <button onClick={()=>{dec()}}>Dec</button>
+                        <button onClick={()=>{res()}}>Reset</button>
+                    </div>
+                )
+
+                
+            }
+
+            function Ct(){
+                return <div>
+                <Counter pr={10} ic={5} ></Counter>
+                <Counter pr={15} ic={3} ></Counter>
+                <Counter pr={20} ></Counter>
+                </div>
+            }
+
+            ReactDOM.render(<Ct/>,document.getElementById("d"))
+        </script>
+    </body>
+</html>

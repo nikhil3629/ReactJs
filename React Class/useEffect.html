@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    </head>
+    <body>
+        <div id="d"></div>
+        <script type="text/babel">
+               
+               function Counter(){
+
+                var[x,setx] = React.useState(0);
+                var[y,sety] = React.useState(0);
+
+                function incx(){
+                    setx(x+1);
+                }
+
+                function incy(){
+                    sety(y+1);
+                }
+
+                React.useEffect(()=>{
+                    console.log("use effect call back")
+                })
+
+                React.useEffect(()=>{
+                    console.log("empty dependency array called")
+                },[])
+
+                React.useEffect(()=>{
+                    console.log("x is called")
+                },[x])
+
+                React.useEffect(()=>{
+                    console.log("Y is Called")
+                },[y])
+
+
+
+                return(
+                    <div>
+                       <h1>X Val:{x}</h1>
+                       <h1>Y val:{y}</h1>
+                       <button onClick={()=>{incx()}}>IncX</button>
+                       <button onClick={()=>{incy()}}>IncY</button>
+                    </div>
+                )
+               }
+
+             ReactDOM.render(<Counter/>,document.getElementById("d"))
+        </script>
+    </body>
+</html>
+
+<!--
+*1. it will be rerender at mounting, upation and unmounting
+*2.it will be rerender only when the page is loaded it means at mounting time.
+*3.it will be rerender only when we click on particular button it means at page loading and at updation time-->
