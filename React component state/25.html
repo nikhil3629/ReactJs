@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    </head>
+    <body>
+        <div id="d"></div>
+        <script type="text/babel">
+
+            var Mr = function(){
+                var [x,setx] = React.useState([1,5,7,7,8]);
+                var [y,sety] = React.useState([5,8,7,6,9]);
+                return(
+                    <div>
+                        {
+                            x.concat(y).sort().map((a)=>{
+                                return (
+                                    <li>{a}</li>
+                                )
+                            })
+                        }
+                    </div>
+                )
+            }
+             
+           ReactDOM.render(<Mr/>,document.getElementById("d"))
+        </script>
+    </body>
+</html>

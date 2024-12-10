@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    </head>
+    <body>
+        <div id="d"></div>
+        <script type="text/babel">
+
+            var Ll = function(){
+                var [x,setx] = React.useState(["rat","cat","dog","sheep","goat"]);
+                return(
+                    <div>
+            
+                        <ol>
+                            {
+                                x.map((a)=>{
+                                    return <li>{a}</li>
+                                })
+                            }
+                        </ol>
+
+                        <ul>
+                            {
+                                x.map((a)=>{
+                                    return <li>{a}</li>
+                                })
+                            }
+                        </ul>
+                    </div>
+                )
+            }
+             
+           ReactDOM.render(<Ll/>,document.getElementById("d"))
+        </script>
+    </body>
+</html>

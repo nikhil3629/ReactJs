@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    </head>
+    <body>
+        <div id="d"></div>
+        <script type="text/babel">
+             
+             var He = function(){
+                var [h,seth] = React.useState([1,4,7,8,9])
+                return(
+                    <div>
+                        {
+                            h.map((a)=>{
+                            return (<h1>{a}</h1>)
+                        })
+                        }
+                        
+                    </div>
+                )
+             }
+           ReactDOM.render(<He/>,document.getElementById("d"))
+        </script>
+    </body>
+</html>
