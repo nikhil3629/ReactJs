@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    </head>
+    <body>
+        <div id="d"></div>
+        <script type="text/babel">
+             var Sr = function(){
+                var [x,setx] = React.useState(['sai','vamshi','nikki','mokshi','yathi','nithi']);
+                return(
+                    <div>
+                        {
+                            x.map((a)=>{
+                               return  <li>{ a.split("").reverse('').join('')}</li>
+                            })
+                           
+                        }
+                    </div>
+                )
+             }
+           ReactDOM.render(<Sr/>,document.getElementById("d"))
+        </script>
+    </body>
+</html>
