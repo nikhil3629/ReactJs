@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="d"></div>
+        <script type="text/babel">
+          var Vr = function(){
+            var [x,setx] = React.useState("purple")
+            return(
+                <div>
+                    <h1 style={{color:x}}>Hello Mawa</h1>
+                </div>
+            )
+          }
+
+        ReactDOM.render(<Vr/>,document.getElementById("d"))
+        </script>
+    </body>
+</html>
