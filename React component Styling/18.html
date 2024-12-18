@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="d"></div>
+        <script type="text/babel">
+          
+          var Cr = function(){
+            var [x,setx] = React.useState("red")
+            var [y,sety] = React.useState("yellow")
+            return(
+                <div>
+                    <h1 style={{color:x,backgroundColor:y}}>Hello Hyderabad</h1>
+                </div>
+            )
+
+          }
+
+        ReactDOM.render(<Cr/>,document.getElementById("d"))
+        </script>
+    </body>
+</html>
