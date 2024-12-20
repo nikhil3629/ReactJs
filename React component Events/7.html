@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="d"></div>
+        <script type="text/babel">
+
+          var Xyz = function(){
+
+            var abc = (e)=>{
+               console.log(e.target.id)
+            }
+
+            return(
+                <div id='world' style={{width:"300px",height:"200px",border:"2px solid"}}>
+                    {
+                        <button onClick={abc}>Welcome to developers world</button>
+                    }
+                </div>
+            )
+        }
+                
+
+
+        ReactDOM.render(<Xyz/>,document.getElementById("d"))
+        </script>
+    </body>
+</html>
