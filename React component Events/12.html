@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="d"></div>
+        <script type="text/babel">
+        
+        var Cp = function(){
+            var [x,setX] = React.useState('');
+
+            function chg(e){
+                setX(e.target.value)
+            }
+
+            function dis(){
+                
+                setX(x.toUpperCase());
+            }
+
+            return(
+                <div>
+                    {
+                        <div>
+                            <input type="text" value={x} onChange={chg}/>
+                            <button onClick={dis}>Click here</button>
+                            <h1>{x}</h1>
+                        </div>
+                    }
+                </div>
+            )
+        }
+
+
+        ReactDOM.render(<Cp/>,document.getElementById("d"))
+        </script>
+    </body>
+</html>

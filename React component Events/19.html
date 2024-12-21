@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="d"></div>
+        <script type="text/babel">
+           var maleimage="https://i.pinimg.com/736x/2a/4e/8d/2a4e8dab6791ed643d5180bc72167f6d.jpg";
+           var femaleimage="https://cdn.pixabay.com/photo/2014/04/02/14/10/female-306407_640.png";
+          var Mf = function(){
+
+            var [mf,setMF] = React.useState('');
+
+            function chg(e){
+                setMF(e.target.value)
+            }
+
+            return(
+                <div>
+                    {
+                        <div>
+                            <input type='radio' value='male' name='gender' checked={mf==='male'}  onChange={chg} />male
+                            <input type='radio' value='female' name='gender' checked={mf==='female'}   onChange={chg} />female
+                            <img src={(mf==='male')? maleimage : femaleimage}/>
+                            
+                        </div>
+
+
+                    }
+                </div>
+            )
+          }
+
+
+        ReactDOM.render(<Mf/>,document.getElementById("d"))
+        </script>
+    </body>
+</html>

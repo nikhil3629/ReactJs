@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="d"></div>
+        <script type="text/babel">
+          
+          var Rd = function(){
+           
+            var [x,setx] = React.useState('')
+
+           function abc(e){
+             setx(e.target.value)
+           }
+
+            return(
+                <div>
+                    {
+                        <div>
+                            <input type='radio' name="country" value="India" onChange={abc}/>IND
+                            <input type='radio' name="country" value="United States Of America" onChange={abc}/>USA
+                            <h1>{x}</h1>
+                        </div>
+                            
+                    }
+                </div>
+            )
+          }
+
+
+        ReactDOM.render(<Rd/>,document.getElementById("d"))
+        </script>
+    </body>
+</html>

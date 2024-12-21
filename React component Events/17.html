@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="d"></div>
+        <script type="text/babel">
+          
+          var Asi = function(){
+            var [n1,setN1] = React.useState('');
+            var [n2,setN2] = React.useState('');
+            var [res,setResult] = React.useState('');
+
+            function add(){
+              setResult(n1+n2)
+            }
+
+            function sub(){
+                setResult(n1-n2)
+            }
+
+            return(
+                <div>
+                    {
+                        <div>
+                            <input type='text' value={n1} onChange={(e)=> setN1(+e.target.value)}/><br/><br/>
+                            <input type='text' value={n2} onChange={(e)=>setN2(+e.target.value)} /><br/><br/>
+                            <button onClick={add}>Add</button>
+                            <button onClick={sub}>Sub</button>
+                            <h1>{res}</h1>
+                        </div>
+                    }
+                </div>
+            )
+          }
+
+
+        ReactDOM.render(<Asi/>,document.getElementById("d"))
+        </script>
+    </body>
+</html>

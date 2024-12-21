@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="d"></div>
+        <script type="text/babel">
+         
+         var Hkk = function(){
+             var[abc,setAbc] = React.useState('');
+            
+             function handleClick(){
+                var x = document.getElementById("t").value;
+                setAbc(x);
+             }
+
+            
+
+            return(
+                <div>
+                    {
+                        <div>
+                            <input type="text"  id="t" />
+                            <button onClick={handleClick}>Click Here</button>
+                            <h1>{abc}</h1>
+                        </div>
+                    }
+                </div>
+            )
+         }
+
+
+        ReactDOM.render(<Hkk/>,document.getElementById("d"))
+        </script>
+    </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="d"></div>
+        <script type="text/babel">
+         
+         var Se = function(){
+
+            var [cr,setcr] = React.useState('')
+
+            function ctry(e){
+                setcr(e.target.value)
+            }
+
+            return(
+                <div>
+                    {
+                        <div>
+                            <select onChange={ctry}>
+                                <option value='IND' >India</option>
+                                <option value='PAK' >Pakistan</option>
+                                <option value='SRI'>Srilanka</option>
+                            </select>
+                            <h1>{cr}</h1>
+                        </div>
+
+                    }
+                </div>
+            )
+         }
+
+
+        ReactDOM.render(<Se/>,document.getElementById("d"))
+        </script>
+    </body>
+</html>
