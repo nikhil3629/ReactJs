@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="d"></div>
+        <script type="text/babel">
+
+          var Sr = function(){
+             
+            var [x,setx] = React.useState('');
+
+            function abc(e){
+                setx(e.target.value);
+            }
+
+            return(
+                <div>
+                    {
+                        <div>
+                            <input type='checkbox' name="Tech" value='Html' onClick={abc}/>:HTML
+                            <input type='checkbox' name="Tech" value='CSS' onClick={abc}/>:CSS
+                            <input type='checkbox' name="Tech" value='JavaScript' onClick={abc}/>:JavaScript
+                            <input type='checkbox' name="Tech" value='React' onClick={abc}/>:React
+                            <h1>{x}</h1>
+                        </div>
+
+                            
+                    }
+                </div>
+            )
+
+          }
+
+        ReactDOM.render(<Sr/>,document.getElementById("d"))
+        </script>
+    </body>
+</html>

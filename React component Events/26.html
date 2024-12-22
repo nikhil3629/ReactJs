@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="d"></div>
+        <script type="text/babel">
+           
+           var Arr = function(){
+
+            var [val1,setlist] = React.useState('')
+            var [check,setcheck] = React.useState(false)
+           
+            function print(){
+                var val = document.getElementById("t").value;
+                setlist([...val1,val])
+               setcheck(true) 
+            }
+
+            return(
+                <div>{
+                    <div>
+                        <input type='text' id="t"/>
+                        <button onClick={print}>Kottu gattiga Kottu</button>
+                        <ul>
+                            {
+                                check && val1.map((a)=>{
+                                    return <li>{a}</li>
+                                })
+                            }
+                        </ul>
+                    </div>
+                }
+                </div>
+            )
+           }
+
+
+        ReactDOM.render(<Arr/>,document.getElementById("d"))
+        </script>
+    </body>
+</html>

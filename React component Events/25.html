@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="d"></div>
+        <script type="text/babel">
+           
+           var Arr = function(){
+
+            var [h1val,seth1val] = React.useState('')
+
+            // function sendval(e){
+            //     seth1val([...h1val,e.target.value])
+            // }
+
+            function receiveval(){
+                var x = document.getElementById('t').value;
+                seth1val([...h1val,x])
+            }
+
+            return(
+                <div>
+                    <input type='text' id='t'/>
+                    <button onClick={receiveval}>Click Here</button>
+                    <h1>{h1val}</h1>
+                </div>
+            )
+           }
+
+
+        ReactDOM.render(<Arr/>,document.getElementById("d"))
+        </script>
+    </body>
+</html>

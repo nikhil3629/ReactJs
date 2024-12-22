@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="d"></div>
+        <script type="text/babel">
+          
+
+          var Bt = function(){
+
+            var [num,setNum] = React.useState('');
+
+          var abc = (value)=>{
+            setNum(value);
+          };
+
+            return(
+                <div>
+                    {
+                        <div>
+                            <button onClick={()=>{abc(1)}}>Button 1</button>
+                            <button onClick={()=>{abc(10)}}>Button 2</button>
+                            <button onClick={()=>{abc(100)}}>Button 3</button>
+                            <button onClick={()=>{abc(1000)}}>Button 4</button>
+                            <h1>{num}</h1>
+                        </div>
+                    }
+                </div>
+            )
+          }
+
+
+        ReactDOM.render(<Bt/>,document.getElementById("d"))
+        </script>
+    </body>
+</html>
