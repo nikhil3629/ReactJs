@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="d"></div>
+        <script type="text/babel">
+          
+          var Inc = function(){
+            var [plus,setpl] = React.useState(0);
+
+            // function increment(){
+            //     plus++;
+            //     setpl(plus);
+            // }
+
+            var increment = ()=>{
+                plus++;
+                setpl(plus);
+            }
+
+            return(
+                <div>{
+                    <div>
+                        
+                        <h1>{plus}</h1>
+                        <button onClick={increment}>Increment</button>
+                    </div>
+                }
+                </div>
+            )
+          }
+
+
+        ReactDOM.render(<Inc/>,document.getElementById("d"))
+        </script>
+    </body>
+</html>

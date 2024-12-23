@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="d"></div>
+        <script type="text/babel">
+           
+           function Ob(){
+
+            var[dk,setDet] = React.useState([
+            {
+            firstname:"Praveen",
+            lastname:"Gubbala",
+            age:40,
+            gender:'male'
+          },
+          {
+            firstname:"Smrithi",
+            lastname:"mandana",
+            age:25,
+            gender:'female'
+          },
+          {
+            firstname:"mithali",
+            lastname:"raj",
+            age:39,
+            gender:'female'
+          },
+          {
+            firstname:"Rohit",
+            lastname:"Sharma",
+            age:35,
+            gender:'male'
+          },
+          {
+            firstname:"Sachin",
+            lastname:"Tendulkar",
+            age:50,
+            gender:'male'
+          },
+            ])
+
+            function abc(a,b){
+                var x = document.getElementById("d1").innerHTML;
+                x = a.lastname;
+                var y = document.getElementById('d2').innerHTML;
+                y=b;
+                setDet([...dt])
+            }
+
+            return <div>
+                    <ul>
+                        {
+                            dk.map((a,b)=>{
+                                return(
+                                    <li onClick={()=>{abc(a,b)}}>{a.firstname}</li>
+                                )
+                            })
+                        }
+                    </ul>
+                    <h1 id='d1'></h1>
+                    <h2 id='d2'></h2>
+                </div>
+                        
+            
+           }
+
+           
+
+
+        ReactDOM.render(<Ob/>,document.getElementById("d"))
+        </script>
+    </body>
+</html>

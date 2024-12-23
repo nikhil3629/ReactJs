@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="d"></div>
+        <script type="text/babel">
+
+            var Idt = function(){
+
+                var [val,setval] = React.useState(100);
+
+                var Inc = ()=>{
+                    val++
+                    setval(val);
+                }
+
+                var Dec = ()=>{
+                    val--
+                    setval(val)
+                }
+
+                return(
+                    <div>{
+                        <div>
+                            <h1>{val}</h1>
+                            <button onClick={Inc}>Increment</button>
+                            <button onClick={Dec}>Decrement</button>
+                        </div>
+                    }
+                    </div>
+                )
+            }
+
+
+
+        ReactDOM.render(<Idt/>,document.getElementById("d"))
+        </script>
+    </body>
+</html>
