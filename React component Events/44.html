@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="d"></div>
+        <script type="text/babel">
+
+            var Sub = function(){
+
+                var [x,setx] = React.useState();
+                var [y,sety] = React.useState();
+                var [Result,setResult] = React.useState();
+
+                var xval=(e)=>{
+                    setx(e.target.value)
+                }
+
+                var yval=(e)=>{
+                    sety(e.target.value)
+                }
+
+                var subt = ()=>{
+                    setResult(x-y)
+                }
+
+                return(
+                    <div>
+                        <input type="text" onChange={xval}/><br/>
+                        <input type='text' onChange={yval}/><br/>
+                        <button onClick={subt}>subn</button>
+                        <h1>{Result}</h1>
+                    </div>
+                )
+
+            }
+           
+
+           
+
+
+        ReactDOM.render(<Sub/>,document.getElementById("d"))
+        </script>
+    </body>
+</html>
